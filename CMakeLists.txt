@@ -1,4 +1,4 @@
-PROJECT(Stage)
+PROJECT(stage)
 
 SET( V_MAJOR 4 )
 SET( V_MINOR 1 )
@@ -148,7 +148,14 @@ ADD_SUBDIRECTORY(libstage)
 ADD_SUBDIRECTORY(examples)
 ADD_SUBDIRECTORY(assets)
 ADD_SUBDIRECTORY(worlds)
-#ADD_SUBDIRECTORY(avonstage)		 
+#ADD_SUBDIRECTORY(avonstage)
+
+catkin_package(
+  INCLUDE_DIRS libstage #${Stage_INCLUDE_DIRS}
+  LIBRARIES stage
+  #CATKIN_DEPENDS geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf message_runtime
+  #DEPENDS Boost
+)		 
 
 IF ( BUILD_PLAYER_PLUGIN AND PLAYER_FOUND )
   ADD_SUBDIRECTORY(libstageplugin)
